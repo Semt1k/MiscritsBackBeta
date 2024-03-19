@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Miscrits/Miscrits/Nature Elementuma.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/MainUI/NPCUI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Locations/NPC.gd" type="Script" id=3]
+
+[node name="NPC" type="Area2D"]
+script = ExtResource( 3 )
+Name = "Nature Elementum"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( 9.5, -6.5 )
+scale = Vector2( 6.85, 4.55 )
+polygon = PoolVector2Array( -37.4453, -65.8242, -60.511, 19.4506, -6.20438, 53.956, 51.8978, 32.4176, 50.5839, -43.4066 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -12, -57 )
+texture = ExtResource( 1 )
+
+[node name="Body" type="Control" parent="."]
+margin_left = -330.0
+margin_top = -250.0
+margin_right = 284.0
+margin_bottom = 188.0
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( -229, 151 )
+
+[node name="NPCUI" parent="." instance=ExtResource( 2 )]
+visible = false
+margin_left = -480.0
+margin_top = -579.0
+margin_right = 800.0
+margin_bottom = 141.0
+
+[connection signal="body_entered" from="." to="." method="_on_Npc_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Npc_body_exited"]
+[connection signal="gui_input" from="Body" to="." method="_on_Body_gui_input"]
+[connection signal="mouse_entered" from="Body" to="." method="_on_Body_mouse_entered"]
+[connection signal="mouse_exited" from="Body" to="." method="_on_Body_mouse_exited"]

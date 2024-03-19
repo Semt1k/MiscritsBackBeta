@@ -1,0 +1,464 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Assets/Font/19_BorisBlackBloxx.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/Font/1_BorisBlackBloxxFont_BorisBlackBloxx.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scenes/Locations/Forest/Team.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Battle/BattleSwitchContainer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Battle/205_SingleArrowUp.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Ui/81_ButtonCloseBlue.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Ui/174_PartyMiscritBG.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Ui/173_PartyMainBG.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Miscrits/Miscrits/6a.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/MainUI/Team/CaptureMoreTeam.tscn" type="PackedScene" id=11]
+
+[sub_resource type="DynamicFont" id=13]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+extra_spacing_space = 1
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 19
+outline_size = 2
+outline_color = Color( 0, 0, 0, 0 )
+use_filter = true
+extra_spacing_char = 2
+extra_spacing_space = 1
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=15]
+size = 14
+outline_size = 2
+outline_color = Color( 0, 0, 0, 0 )
+use_filter = true
+extra_spacing_char = 1
+extra_spacing_space = 1
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=37]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+bg_color = Color( 0.878431, 0.968627, 0.988235, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 1
+border_width_bottom = 2
+border_color = Color( 0.305882, 0.305882, 0.305882, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_color = Color( 0, 0, 0, 0.262745 )
+shadow_size = 1
+shadow_offset = Vector2( 0, 2 )
+
+[sub_resource type="Animation" id=18]
+resource_name = "Spawn"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Input_Lock:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.384314 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Team:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 0.5, 2 ),
+"update": 0,
+"values": [ Vector2( -158.5, 19 ), Vector2( 141.5, 19 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Team:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 0.5, 2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="Team" type="Control"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+script = ExtResource( 3 )
+
+[node name="Input_Lock" type="TextureButton" parent="."]
+modulate = Color( 1, 1, 1, 0.384314 )
+self_modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -984.0
+margin_top = -559.0
+margin_right = 984.0
+margin_bottom = 559.0
+texture_normal = ExtResource( 7 )
+expand = true
+
+[node name="Team" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -370.5
+margin_top = -281.0
+margin_right = 370.5
+margin_bottom = 271.0
+rect_scale = Vector2( 0.93, 0.93 )
+rect_pivot_offset = Vector2( 370, 276 )
+texture = ExtResource( 8 )
+
+[node name="Abi" type="Label" parent="Team"]
+anchor_right = 1.0
+margin_bottom = 43.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 13 )
+text = "Click and Drag to Change the Order of Your Party"
+align = 1
+valign = 1
+
+[node name="Team" type="HBoxContainer" parent="Team"]
+margin_left = 14.5
+margin_top = 51.0
+margin_right = 733.5
+margin_bottom = 259.0
+
+[node name="Panela" type="TextureRect" parent="Team/Team"]
+margin_right = 175.0
+margin_bottom = 208.0
+texture = ExtResource( 7 )
+
+[node name="Count" type="Label" parent="Team/Team/Panela"]
+margin_left = 5.0
+margin_top = 4.0
+margin_right = 40.0
+margin_bottom = 25.0
+custom_colors/font_color = Color( 1, 1, 1, 0.603922 )
+custom_fonts/font = SubResource( 14 )
+text = "1"
+
+[node name="Add" type="Label" parent="Team/Team/Panela"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -51.5
+margin_top = -8.0
+margin_right = 51.5
+margin_bottom = 8.0
+custom_colors/font_color = Color( 1, 1, 1, 0.603922 )
+custom_fonts/font = SubResource( 15 )
+text = "Add Miscrit"
+
+[node name="BattleSwitchContainer" parent="Team/Team/Panela" instance=ExtResource( 4 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -80.5
+margin_top = -86.0
+margin_right = 80.5
+margin_bottom = -12.0
+custom_styles/panel = SubResource( 37 )
+Battle = false
+Team = true
+
+[node name="TextureRect" type="TextureRect" parent="Team/Team/Panela"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -58.5
+margin_top = -99.0
+margin_right = 58.5
+margin_bottom = 15.0
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 6
+
+[node name="Panela2" type="TextureRect" parent="Team/Team"]
+margin_left = 179.0
+margin_right = 354.0
+margin_bottom = 208.0
+texture = ExtResource( 7 )
+
+[node name="Count" type="Label" parent="Team/Team/Panela2"]
+margin_left = 5.0
+margin_top = 4.0
+margin_right = 40.0
+margin_bottom = 25.0
+custom_colors/font_color = Color( 1, 1, 1, 0.603922 )
+custom_fonts/font = SubResource( 14 )
+text = "2"
+
+[node name="Add" type="Label" parent="Team/Team/Panela2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -51.5
+margin_top = -8.0
+margin_right = 51.5
+margin_bottom = 8.0
+custom_colors/font_color = Color( 1, 1, 1, 0.603922 )
+custom_fonts/font = SubResource( 15 )
+text = "Add Miscrit"
+
+[node name="BattleSwitchContainer" parent="Team/Team/Panela2" instance=ExtResource( 4 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -80.5
+margin_top = -86.0
+margin_right = 80.5
+margin_bottom = -12.0
+custom_styles/panel = SubResource( 37 )
+Battle = false
+Team = true
+
+[node name="TextureRect" type="TextureRect" parent="Team/Team/Panela2"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -58.5
+margin_top = -99.0
+margin_right = 58.5
+margin_bottom = 15.0
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 6
+
+[node name="Panela3" type="TextureRect" parent="Team/Team"]
+margin_left = 358.0
+margin_right = 533.0
+margin_bottom = 208.0
+texture = ExtResource( 7 )
+
+[node name="Count" type="Label" parent="Team/Team/Panela3"]
+margin_left = 5.0
+margin_top = 4.0
+margin_right = 40.0
+margin_bottom = 25.0
+custom_colors/font_color = Color( 1, 1, 1, 0.603922 )
+custom_fonts/font = SubResource( 14 )
+text = "3"
+
+[node name="Add" type="Label" parent="Team/Team/Panela3"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -51.5
+margin_top = -8.0
+margin_right = 51.5
+margin_bottom = 8.0
+custom_colors/font_color = Color( 1, 1, 1, 0.603922 )
+custom_fonts/font = SubResource( 15 )
+text = "Add Miscrit"
+
+[node name="BattleSwitchContainer" parent="Team/Team/Panela3" instance=ExtResource( 4 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -80.5
+margin_top = -86.0
+margin_right = 80.5
+margin_bottom = -12.0
+custom_styles/panel = SubResource( 37 )
+Battle = false
+Team = true
+
+[node name="TextureRect" type="TextureRect" parent="Team/Team/Panela3"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -58.5
+margin_top = -99.0
+margin_right = 58.5
+margin_bottom = 15.0
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 6
+
+[node name="Panela4" type="TextureRect" parent="Team/Team"]
+margin_left = 537.0
+margin_right = 712.0
+margin_bottom = 208.0
+texture = ExtResource( 7 )
+
+[node name="Count" type="Label" parent="Team/Team/Panela4"]
+margin_left = 5.0
+margin_top = 4.0
+margin_right = 40.0
+margin_bottom = 25.0
+custom_colors/font_color = Color( 1, 1, 1, 0.603922 )
+custom_fonts/font = SubResource( 14 )
+text = "4"
+
+[node name="Add" type="Label" parent="Team/Team/Panela4"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -51.5
+margin_top = -8.0
+margin_right = 51.5
+margin_bottom = 8.0
+custom_colors/font_color = Color( 1, 1, 1, 0.603922 )
+custom_fonts/font = SubResource( 15 )
+text = "Add Miscrit"
+
+[node name="BattleSwitchContainer" parent="Team/Team/Panela4" instance=ExtResource( 4 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -80.5
+margin_top = -86.0
+margin_right = 80.5
+margin_bottom = -12.0
+custom_styles/panel = SubResource( 37 )
+Battle = false
+Team = true
+
+[node name="TextureRect" type="TextureRect" parent="Team/Team/Panela4"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -58.5
+margin_top = -99.0
+margin_right = 58.5
+margin_bottom = 15.0
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 6
+
+[node name="Other" type="GridContainer" parent="Team"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -336.5
+margin_top = 13.0
+margin_right = 336.5
+margin_bottom = 245.0
+custom_constants/vseparation = 10
+custom_constants/hseparation = 9
+columns = 4
+
+[node name="CaptureMoreTeam" parent="Team/Other" instance=ExtResource( 11 )]
+
+[node name="CaptureMoreTeam2" parent="Team/Other" instance=ExtResource( 11 )]
+margin_left = 170.0
+margin_right = 331.0
+
+[node name="CaptureMoreTeam3" parent="Team/Other" instance=ExtResource( 11 )]
+margin_left = 340.0
+margin_right = 501.0
+
+[node name="CaptureMoreTeam4" parent="Team/Other" instance=ExtResource( 11 )]
+margin_left = 510.0
+margin_right = 671.0
+
+[node name="CaptureMoreTeam5" parent="Team/Other" instance=ExtResource( 11 )]
+margin_top = 82.0
+margin_bottom = 154.0
+
+[node name="CaptureMoreTeam6" parent="Team/Other" instance=ExtResource( 11 )]
+margin_left = 170.0
+margin_top = 82.0
+margin_right = 331.0
+margin_bottom = 154.0
+
+[node name="CaptureMoreTeam7" parent="Team/Other" instance=ExtResource( 11 )]
+margin_left = 340.0
+margin_top = 82.0
+margin_right = 501.0
+margin_bottom = 154.0
+
+[node name="CaptureMoreTeam8" parent="Team/Other" instance=ExtResource( 11 )]
+margin_left = 510.0
+margin_top = 82.0
+margin_right = 671.0
+margin_bottom = 154.0
+
+[node name="CaptureMoreTeam9" parent="Team/Other" instance=ExtResource( 11 )]
+margin_top = 164.0
+margin_bottom = 236.0
+
+[node name="Close" type="TextureButton" parent="Team"]
+margin_left = 711.5
+margin_top = -16.0
+margin_right = 760.5
+margin_bottom = 28.0
+texture_normal = ExtResource( 6 )
+expand = true
+stretch_mode = 3
+
+[node name="OtherMore" type="TextureButton" parent="Team"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 16.7742
+margin_top = 245.161
+margin_right = 32.7742
+margin_bottom = 264.161
+texture_normal = ExtResource( 5 )
+expand = true
+
+[node name="OtherLess" type="TextureButton" parent="Team"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 703.871
+margin_top = 245.161
+margin_right = 719.871
+margin_bottom = 264.161
+texture_normal = ExtResource( 5 )
+expand = true
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Spawn = SubResource( 18 )
+
+[connection signal="visibility_changed" from="." to="." method="_on_Team_visibility_changed"]
+[connection signal="pressed" from="Team/Close" to="." method="_on_Close_pressed"]
+[connection signal="pressed" from="Team/OtherMore" to="." method="_on_OtherMore_pressed"]
+[connection signal="pressed" from="Team/OtherLess" to="." method="_on_OtherLess_pressed"]

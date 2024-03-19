@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Whip2.ogg-538e9eff459d246b208cd0e9c85e2c04.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sound/Whip2.ogg"
+dest_files=[ "res://.import/Whip2.ogg-538e9eff459d246b208cd0e9c85e2c04.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

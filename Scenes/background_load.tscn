@@ -1,0 +1,120 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/background_load.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Ui/319_MainLoadBarFrame_png$6b0954f2f8de70b126e0598e5c9f3301-1171340301.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Ui/320_MainLoadBarFill_png$fe4dfc45dc73e779162d6f3be078f7a5-1278992501.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Ui/87_ButtonTrainBG.png" type="Texture" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "fadein"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "fadeout"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="BackgroundLoad" type="CanvasLayer"]
+layer = 2
+script = ExtResource( 1 )
+
+[node name="Control" type="Control" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Bg" type="TextureRect" parent="Control"]
+self_modulate = Color( 0, 0, 0, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 7
+
+[node name="left" type="TextureRect" parent="Control/Bg"]
+visible = false
+anchor_left = 0.087
+anchor_top = 0.875
+anchor_right = 0.087
+anchor_bottom = 0.875
+margin_left = -0.360008
+margin_top = -6.10352e-05
+margin_right = -0.360008
+margin_bottom = -6.10352e-05
+grow_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Layer" type="TextureRect" parent="Control/Bg"]
+modulate = Color( 1, 1, 1, 0.627451 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="right" type="TextureRect" parent="Control/Bg"]
+visible = false
+anchor_left = 0.919
+anchor_top = 0.112
+anchor_right = 0.919
+anchor_bottom = 0.112
+margin_left = -0.320068
+margin_top = 0.360001
+margin_right = -0.320068
+margin_bottom = 0.360001
+grow_horizontal = 0
+flip_h = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Progress" type="TextureProgress" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -221.5
+margin_top = -98.0
+margin_right = 221.5
+margin_bottom = 98.0
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="Control"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/fadein = SubResource( 1 )
+anims/fadeout = SubResource( 2 )
+
+[connection signal="resized" from="Control" to="." method="_on_Control_resized"]

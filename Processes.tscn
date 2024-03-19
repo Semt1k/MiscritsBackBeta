@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Processes.gd" type="Script" id=1]
+
+[node name="Processes" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Virtue" type="Timer" parent="."]
+wait_time = 150.0
+autostart = true
+
+[node name="Save" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Virtue" to="." method="_on_Virtue_timeout"]
+[connection signal="timeout" from="Save" to="." method="_on_Save_timeout"]

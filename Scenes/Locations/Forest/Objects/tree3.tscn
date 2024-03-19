@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Locations/Forest/Objects/tree3.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Locations/BasicMapObject.tscn" type="PackedScene" id=2]
+
+[node name="BasicMapObject" instance=ExtResource( 2 )]
+
+[node name="CollisionPolygon2D" parent="." index="0"]
+visible = true
+polygon = PoolVector2Array( -65, -6, -36, 33, 40, 40, 83, 2, 6, -44 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D" index="0"]
+position = Vector2( 1, -115 )
+texture = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" parent="StaticBody2D" index="1"]
+polygon = PoolVector2Array( -5.90476, 6.79245, -2.47619, 6.98113, -2.66667, 8.86792, 0.952381, 7.35849, 5.14286, 8.30189, 3.80952, 6.41509, 8.95238, 5.4717, 4.95238, 3.77359, 3.2381, 0.566038, 2.66667, -6.79245, 1.90476, -19.8113, 13.7143, -27.9245, 15.8095, -36.6038, 8.57143, -29.2453, 6.66667, -32.6415, 5.71429, -27.9245, 1.33333, -25.283, 1.14286, -43.0189, -6.09524, -46.7924, -1.52381, -40.3774, -0.571429, -17.3585, -2.66667, -3.77358, -3.42857, 3.58491, -5.71429, 4.5283, -4, 5.28302 )

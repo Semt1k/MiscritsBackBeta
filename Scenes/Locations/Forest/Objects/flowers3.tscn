@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Locations/Forest/Objects/flowers3.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Locations/BasicMapObject.tscn" type="PackedScene" id=2]
+
+[node name="BasicMapObject" instance=ExtResource( 2 )]
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D" index="0"]
+position = Vector2( 0, -1 )
+texture = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" parent="StaticBody2D" index="1"]
+visible = false
+polygon = PoolVector2Array( -9.14286, -0.377358, -4.57143, 2.45283, -1.71429, 2.83019, -0.761905, 4.71698, -1.52381, 5.09434, -0.571429, 5.4717, 1.33333, 5.4717, 1.52381, 4.5283, 1.14286, 4.33962, 3.04762, 2.64151, 5.14286, 1.50943, 7.61905, 1.32076, 10.6667, -2.64151, 9.71429, -5.4717, 5.52381, -7.54717, 1.33333, -6.79245, 0.761905, -6.60377, -2.09524, -7.16981, -5.71429, -6.22641, -7.42857, -5.09434, -9.71429, -2.83019 )

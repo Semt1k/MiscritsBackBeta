@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/Battle/Battle_Buff.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Battle/Battle_Statuses/StatusIconea.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Battle/Battle_Statuses/StatusIconArrowUp.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Font/1_BorisBlackBloxxFont_BorisBlackBloxx.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="Animation" id=15]
+resource_name = "Spawn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.5, 2 ),
+"update": 0,
+"values": [ Vector2( 1, 0 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "White"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 2, 2, 2, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=17]
+size = 11
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+extra_spacing_space = 1
+font_data = ExtResource( 4 )
+
+[node name="Battle_Buff" type="TextureRect"]
+margin_right = 25.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 25, 25 )
+hint_tooltip = "jjjj"
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 1, 1e-05 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Arrow" type="TextureRect" parent="Sprite"]
+margin_left = -3.0
+margin_top = 23.0
+margin_right = 9.0
+margin_bottom = 36.0
+rect_pivot_offset = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
+anims/Spawn = SubResource( 15 )
+anims/White = SubResource( 16 )
+
+[node name="Count" type="Label" parent="Sprite"]
+visible = false
+margin_left = -1.0
+margin_top = 25.0
+margin_right = 7.0
+margin_bottom = 38.0
+custom_fonts/font = SubResource( 17 )
+text = "6"

@@ -1,0 +1,88 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Battle/AbillityDescription.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Battle/111_FightAbilityPopupNormal.png" type="Texture" id=2]
+
+[sub_resource type="DynamicFontData" id=16]
+font_path = "res://Assets/Font/2_MiscriaMedium_Miscria-Medium.ttf"
+
+[sub_resource type="DynamicFont" id=17]
+size = 14
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+extra_spacing_space = 1
+font_data = SubResource( 16 )
+
+[sub_resource type="DynamicFont" id=18]
+size = 11
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+extra_spacing_bottom = -1
+font_data = SubResource( 16 )
+
+[node name="AbillityDescription" type="TextureRect"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 2 )
+script = ExtResource( 1 )
+
+[node name="AP" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -55.0
+margin_top = 10.0
+margin_right = -55.0
+margin_bottom = -86.0
+custom_fonts/font = SubResource( 17 )
+text = "Attack Power:"
+align = 1
+valign = 1
+
+[node name="AP_Lab" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -55.0
+margin_top = 29.0
+margin_right = -55.0
+margin_bottom = -67.0
+custom_fonts/font = SubResource( 17 )
+text = "--"
+align = 1
+valign = 1
+
+[node name="Acc" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 57.0
+margin_top = 10.0
+margin_right = 57.0
+margin_bottom = -86.0
+custom_fonts/font = SubResource( 17 )
+text = "Accuracy:"
+align = 1
+valign = 1
+
+[node name="Acc_Lab" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 57.0
+margin_top = 29.0
+margin_right = 57.0
+margin_bottom = -67.0
+custom_fonts/font = SubResource( 17 )
+text = "50%"
+align = 1
+valign = 1
+
+[node name="Desc" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 63.0
+margin_right = -7.0
+margin_bottom = -19.0
+custom_fonts/font = SubResource( 18 )
+text = "Descriptions arent added yet ddddd fsfds fdsgf sd"
+autowrap = true

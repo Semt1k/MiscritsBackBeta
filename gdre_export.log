@@ -1,0 +1,44 @@
+GDRE Tools v0.6.2
+Windows 10.0.19045, GeForce MX130, opengl3
+Extracted 1621 files, no errors detected!
+USER WARNING: Converting lossy imports, you may lose fidelity for indicated assets when re-importing upon loading the project
+   at: ImportExporter::_export_imports (modules\gdsdecomp\utility\import_exporter.cpp:58)
+Script version 3.5.2 (rev 0xa7aad78) detected
+Saved project config project.godot.
+Saved project config project.godot.
+
+
+********************************EXPORT REPORT********************************
+
+Totals:                                 
+Decompiled scripts:                     31
+Failed scripts:                         0
+Imported resources for export session:  1621
+Successfully converted:                 714
+Lossy:                                  6
+Rewrote metadata:                       0
+Non-importable conversions:             0
+Not converted:                          0
+Failed conversions:                     0
+-------------
+
+
+The following files were converted from an import that was stored lossy.
+You may lose fidelity when re-importing these files upon loading the project.
+res://.import/Video-Game-Art-Miscrits-1450061-wallhere.com.jpg-ad78461732cba9f94e6fb4859577dd9e.stex to res://Assets/Battle/Background/Video-Game-Art-Miscrits-1450061-wallhere.com.jpg
+res://.import/Ynyc4O5h-wallha.com.jpg-8879165d17d1421e5b62551f5c330e81.stex to res://Assets/Battle/Background/Ynyc4O5h-wallha.com.jpg
+res://.import/wallpaperflare.com_w9allpaper.jpg-e30c58ac08eed394751505eafd744423.stex to res://Assets/Battle/Background/wallpaperflare.com_w9allpaper.jpg
+res://.import/wallpaperflare.com_wallpaper (1).jpg-ae854de044f1315a0b57da2cd0934232.stex to res://Assets/Battle/Background/wallpaperflare.com_wallpaper (1).jpg
+res://.import/wallpaperflare.com_wallpaper (2).jpg-13d45cf87daea4730c9e029175229c21.stex to res://Assets/Battle/Background/wallpaperflare.com_wallpaper (2).jpg
+res://.import/wallpaperflare.com_wallpaper.jpg-7db2bf55b94be87226f687edb67771aa.stex to res://Assets/Battle/Background/wallpaperflare.com_wallpaper.jpg
+
+
+------------------------------------------------------------------------------------
+
+Use Godot editor version 3.5.2 to edit the project.
+Note: the project may be using a custom version of Godot. Detection for this has not been implemented yet.
+If you find that you have many non-import errors upon opening the project 
+(i.e. scripts or shaders have many errors), use the original game's binary as the export template.
+
+*******************************************************************************
+

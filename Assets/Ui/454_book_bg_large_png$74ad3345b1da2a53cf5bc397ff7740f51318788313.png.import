@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/454_book_bg_large_png$74ad3345b1da2a53cf5bc397ff7740f51318788313.png-a9a81bdda5b6225a619d4a83ba0fc03e.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Assets/Ui/454_book_bg_large_png$74ad3345b1da2a53cf5bc397ff7740f51318788313.png"
+dest_files=[ "res://.import/454_book_bg_large_png$74ad3345b1da2a53cf5bc397ff7740f51318788313.png-a9a81bdda5b6225a619d4a83ba0fc03e.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

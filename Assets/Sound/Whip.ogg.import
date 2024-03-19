@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Whip.ogg-10ee5504ad3436512b54970ec2862c0c.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sound/Whip.ogg"
+dest_files=[ "res://.import/Whip.ogg-10ee5504ad3436512b54970ec2862c0c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

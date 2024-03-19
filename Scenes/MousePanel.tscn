@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/Font/19_BorisBlackBloxx.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Themes/UI.tres" type="Theme" id=2]
+[ext_resource path="res://Scenes/MousePanel.gd" type="Script" id=3]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+light_mode = 1
+
+[sub_resource type="StyleBoxFlat" id=2]
+content_margin_left = 3.0
+content_margin_right = 3.0
+content_margin_top = 3.0
+content_margin_bottom = 3.0
+bg_color = Color( 1.25, 1.25, 1.25, 0.66 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_size = 2
+shadow_offset = Vector2( 0, 1 )
+anti_aliasing_size = 1.0
+
+[sub_resource type="DynamicFont" id=3]
+size = 12
+outline_color = Color( 0.0509804, 0.0509804, 0.0509804, 1 )
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=4]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="Panel" type="Panel"]
+material = SubResource( 1 )
+margin_right = 131.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 2 )
+custom_styles/panel = SubResource( 2 )
+script = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 4.0
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.0784314, 0.141176, 0.239216, 0.968627 )
+custom_fonts/font = SubResource( 3 )
+text = "Search for Miscrit"
+align = 1
+valign = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 9.0
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Fadeout = SubResource( 4 )
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

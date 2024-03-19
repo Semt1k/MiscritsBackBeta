@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/Ui/Rarities_Sheet.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Battle/169_MiscritLevelBG.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Miscrits/Icons/6a.png" type="Texture" id=3]
+[ext_resource path="res://Shaders/CornerRadiusMaterial.tres" type="Material" id=4]
+[ext_resource path="res://Scenes/MainUI/MiscritIcon.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFontData" id=12]
+font_path = "res://Assets/Font/2_MiscriaMedium_Miscria-Medium.ttf"
+
+[sub_resource type="DynamicFont" id=15]
+size = 10
+outline_size = 1
+outline_color = Color( 0.0823529, 0.0823529, 0.0823529, 0.984314 )
+use_filter = true
+extra_spacing_char = 2
+extra_spacing_space = 1
+font_data = SubResource( 12 )
+
+[node name="Icon" type="TextureRect"]
+material = ExtResource( 4 )
+margin_left = 7.0
+margin_top = 6.0
+margin_right = 43.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 36, 36 )
+texture = ExtResource( 3 )
+expand = true
+script = ExtResource( 5 )
+
+[node name="LevelBg" type="TextureRect" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -12.0
+margin_top = -10.0
+margin_right = 3.0
+margin_bottom = 4.0
+texture = ExtResource( 2 )
+
+[node name="Level" type="Label" parent="LevelBg"]
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 13.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 15 )
+text = "7"
+align = 1
+valign = 1
+
+[node name="Rarity" type="Sprite" parent="."]
+visible = false
+position = Vector2( 8, 8 )
+texture = ExtResource( 1 )
+vframes = 5

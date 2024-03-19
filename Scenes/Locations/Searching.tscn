@@ -1,0 +1,94 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/Font/2_MiscriaMedium_Miscria-Medium.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.411765, 0.411765, 0.411765, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.0235294, 0.129412, 0.14902, 1 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="DynamicFont" id=2]
+size = 17
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+extra_spacing_char = 2
+extra_spacing_space = 1
+font_data = ExtResource( 1 )
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0, 0.15, 0.85, 1 )
+colors = PoolColorArray( 0.160784, 0.571139, 0.870588, 1, 0.113725, 0.576103, 0.717647, 1, 0.10231, 0.469596, 0.582031, 1, 0.160784, 0.587775, 0.870588, 1 )
+
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
+width = 8
+
+[sub_resource type="Animation" id=6]
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 0.5, 2 ),
+"update": 0,
+"values": [ Vector2( 11, 0 ), Vector2( 11, 186 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[node name="Searching" type="Panel"]
+margin_left = -95.0
+margin_top = -200.0
+margin_right = 95.0
+margin_bottom = -185.0
+custom_styles/panel = SubResource( 7 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+use_parent_material = true
+margin_left = 38.0
+margin_top = -27.0
+margin_right = 159.0
+margin_bottom = -4.0
+rect_clip_content = false
+custom_fonts/normal_font = SubResource( 2 )
+tab_size = 0
+text = "Searching..."
+scroll_active = false
+
+[node name="TextureRect" type="TextureRect" parent="."]
+use_parent_material = true
+margin_left = 2.0
+margin_top = 13.0
+margin_right = 13.0
+margin_bottom = 14.0
+rect_rotation = -90.0
+texture = SubResource( 5 )
+stretch_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "search"
+anims/search = SubResource( 6 )

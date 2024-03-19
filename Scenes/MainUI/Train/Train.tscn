@@ -1,0 +1,1799 @@
+[gd_scene load_steps=61 format=2]
+
+[ext_resource path="res://Scenes/Battle/TeamContainer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Battle/Continue.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/MainUI/Train.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Font/1_BorisBlackBloxxFont_BorisBlackBloxx.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Scenes/Battle/AbillityDescription.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Ui/244_TrainingMiscritsBG.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Ui/239_TrainingMainFrame.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Battle/205_SingleArrowUp.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Ui/227_TrainingAbilitiesAndStatsBG.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Ui/174_PartyMiscritBG.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Ui/229_TrainingAbilitiesBG.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Font/2_MiscriaMedium_Miscria-Medium.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://Assets/Sound/Spawn.ogg" type="AudioStream" id=13]
+[ext_resource path="res://Assets/Ui/TrainStatsPanel.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Ui/246_TrainingPartyBG.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Ui/235_TrainingEvolveButtonBG.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Ui/250_TrainingTrainButtonBG.png" type="Texture" id=17]
+[ext_resource path="res://Scenes/MainUI/Train/MiscritTrain.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/Battle/Ability.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Scenes/MainUI/Train/MiscritEmpty.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Assets/Battle/Buff_hp.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Battle/Buff_ea.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Battle/Buff_pa.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Battle/Buff_pd.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Battle/Buff_ed.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Battle/Buff_spd.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Ui/TrainBackground/Nature.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Ui/81_ButtonCloseBlue.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Ui/281_WorldNeighborAvatarBG.png" type="Texture" id=29]
+[ext_resource path="res://Scenes/MainUI/MiscritIcon.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Assets/Ui/TrainStats.png" type="Texture" id=31]
+[ext_resource path="res://Assets/Ui/AbilityPanel.png" type="Texture" id=32]
+[ext_resource path="res://Assets/Battle/AbilityEnd.png" type="Texture" id=33]
+[ext_resource path="res://Assets/Sound/Training.ogg" type="AudioStream" id=34]
+[ext_resource path="res://Assets/Ui/245_TrainingOptionsButtonBG.png" type="Texture" id=35]
+[ext_resource path="res://Assets/Ui/ResourcePanel.png" type="Texture" id=36]
+
+[sub_resource type="DynamicFont" id=15]
+size = 13
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+extra_spacing_space = 1
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=37]
+size = 18
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+extra_spacing_space = 1
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=50]
+size = 14
+outline_size = 2
+outline_color = Color( 0, 0, 0, 0 )
+use_filter = true
+extra_spacing_char = 2
+extra_spacing_space = 1
+font_data = ExtResource( 12 )
+
+[sub_resource type="Animation" id=49]
+resource_name = "spawn"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Setting:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 0 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=40]
+size = 13
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+extra_spacing_space = 1
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=41]
+size = 15
+outline_size = 2
+outline_color = Color( 0.0470588, 0.0627451, 0.180392, 1 )
+use_filter = true
+extra_spacing_space = 1
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 15
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+extra_spacing_space = 1
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=39]
+size = 22
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+extra_spacing_char = -1
+extra_spacing_space = 1
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFontData" id=34]
+font_path = "res://Assets/Font/2_MiscriaMedium_Miscria-Medium.ttf"
+
+[sub_resource type="DynamicFont" id=29]
+size = 12
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+extra_spacing_space = 1
+font_data = SubResource( 34 )
+
+[sub_resource type="DynamicFontData" id=27]
+font_path = "res://Assets/Font/2_MiscriaMedium_Miscria-Medium.ttf"
+
+[sub_resource type="DynamicFont" id=28]
+size = 10
+outline_size = 2
+outline_color = Color( 0, 0, 0, 0 )
+use_filter = true
+extra_spacing_top = -5
+extra_spacing_char = 1
+extra_spacing_space = 1
+font_data = SubResource( 27 )
+
+[sub_resource type="DynamicFont" id=30]
+size = 11
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+extra_spacing_top = -4
+extra_spacing_space = 1
+font_data = SubResource( 34 )
+
+[sub_resource type="Animation" id=35]
+resource_name = "Exit"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.5, 2 ),
+"update": 0,
+"values": [ Vector2( 304.5, 95.5 ), Vector2( 304.5, 375.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../..:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../..:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=36]
+resource_name = "Spawn"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 104.5, 95.5 ), Vector2( 304.5, 95.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../..:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../..:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="DynamicFont" id=31]
+size = 15
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+extra_spacing_space = 1
+font_data = SubResource( 34 )
+
+[sub_resource type="Gradient" id=43]
+colors = PoolColorArray( 0.710938, 0.710938, 0.710938, 1, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=44]
+gradient = SubResource( 43 )
+
+[sub_resource type="StyleBoxFlat" id=45]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+bg_color = Color( 0.113725, 0.117647, 0.117647, 0.658824 )
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+border_blend = true
+shadow_color = Color( 0, 0, 0, 0.262745 )
+shadow_offset = Vector2( 0, 5 )
+
+[sub_resource type="DynamicFont" id=46]
+size = 10
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+extra_spacing_space = 1
+font_data = ExtResource( 4 )
+
+[sub_resource type="Animation" id=47]
+resource_name = "Exit"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Abi:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Vector2( 319.5, 207 ), Vector2( 319.5, 307 ) ]
+}
+
+[sub_resource type="Animation" id=48]
+resource_name = "Spawn"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Abi:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.5, 2 ),
+"update": 0,
+"values": [ Vector2( 119.5, 207 ), Vector2( 319.5, 207 ) ]
+}
+
+[sub_resource type="Animation" id=42]
+resource_name = "Spawn"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 0.5, 2 ),
+"update": 0,
+"values": [ Vector2( 113, 54 ), Vector2( 413, 54 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("InputLock:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0.431373 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TextureRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 0.5, 2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=51]
+size = 14
+outline_size = 2
+outline_color = Color( 0.207843, 0.0117647, 0.0117647, 1 )
+use_filter = true
+extra_spacing_char = 2
+extra_spacing_space = 1
+font_data = ExtResource( 12 )
+
+[node name="Train" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="InputLock" type="TextureButton" parent="."]
+modulate = Color( 0, 0, 0, 0.431373 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -1034.5
+margin_top = -568.0
+margin_right = 1034.5
+margin_bottom = 568.0
+texture_normal = ExtResource( 29 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.9375 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -117.75
+margin_top = -246.0
+margin_right = 377.25
+margin_bottom = 359.0
+rect_scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 7 )
+
+[node name="Team" type="TextureRect" parent="TextureRect"]
+margin_left = -228.75
+margin_top = 26.25
+margin_right = 1.24997
+margin_bottom = 258.25
+texture = ExtResource( 15 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/Team"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 18.0
+margin_top = 26.0
+custom_constants/separation = 2
+
+[node name="EvolitTrain" parent="TextureRect/Team/VBoxContainer" instance=ExtResource( 18 )]
+margin_right = 212.0
+margin_bottom = 48.0
+
+[node name="EvolitTrain2" parent="TextureRect/Team/VBoxContainer" instance=ExtResource( 20 )]
+margin_top = 50.0
+margin_right = 212.0
+margin_bottom = 98.0
+
+[node name="EvolitTrain3" parent="TextureRect/Team/VBoxContainer" instance=ExtResource( 20 )]
+margin_top = 100.0
+margin_right = 212.0
+margin_bottom = 148.0
+
+[node name="EvolitTrain4" parent="TextureRect/Team/VBoxContainer" instance=ExtResource( 20 )]
+margin_top = 150.0
+margin_right = 212.0
+margin_bottom = 198.0
+
+[node name="Label" type="Label" parent="TextureRect/Team"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -202.0
+custom_fonts/font = SubResource( 15 )
+text = "Choose a Miscrit to Train"
+align = 1
+valign = 1
+
+[node name="Notice" type="TextureRect" parent="TextureRect/Team"]
+show_behind_parent = true
+margin_left = 14.5
+margin_top = -29.75
+margin_right = 161.5
+margin_bottom = 53.25
+rect_scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="TextureRect/Team/Notice"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -37.0
+custom_fonts/font = SubResource( 37 )
+text = "My Miscrits"
+align = 1
+valign = 1
+
+[node name="All" type="TextureRect" parent="TextureRect"]
+margin_left = -228.75
+margin_top = 265.0
+margin_right = 1.25
+margin_bottom = 590.0
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="OtherMore" type="TextureButton" parent="TextureRect/All"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 109.0
+margin_top = 142.5
+margin_right = 125.0
+margin_bottom = 161.5
+rect_rotation = 90.0
+texture_normal = ExtResource( 8 )
+expand = true
+
+[node name="OtherLess" type="TextureButton" parent="TextureRect/All"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 132.75
+margin_top = 142.5
+margin_right = 148.75
+margin_bottom = 161.5
+rect_rotation = 90.0
+texture_normal = ExtResource( 8 )
+expand = true
+flip_h = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/All"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 17.0
+margin_top = 6.0
+margin_right = -12.0
+margin_bottom = -21.0
+custom_constants/separation = 2
+
+[node name="EvolitTrain2" parent="TextureRect/All/VBoxContainer" instance=ExtResource( 20 )]
+margin_right = 201.0
+margin_bottom = 48.0
+
+[node name="EvolitTrain3" parent="TextureRect/All/VBoxContainer" instance=ExtResource( 20 )]
+margin_top = 50.0
+margin_right = 201.0
+margin_bottom = 98.0
+
+[node name="EvolitTrain7" parent="TextureRect/All/VBoxContainer" instance=ExtResource( 20 )]
+margin_top = 100.0
+margin_right = 201.0
+margin_bottom = 148.0
+
+[node name="EvolitTrain4" parent="TextureRect/All/VBoxContainer" instance=ExtResource( 20 )]
+margin_top = 150.0
+margin_right = 201.0
+margin_bottom = 198.0
+
+[node name="EvolitTrain6" parent="TextureRect/All/VBoxContainer" instance=ExtResource( 20 )]
+margin_top = 200.0
+margin_right = 201.0
+margin_bottom = 248.0
+
+[node name="EvolitTrain5" parent="TextureRect/All/VBoxContainer" instance=ExtResource( 20 )]
+margin_top = 250.0
+margin_right = 201.0
+margin_bottom = 298.0
+
+[node name="Background" type="TextureRect" parent="TextureRect"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 16.0
+margin_right = -18.0
+margin_bottom = -16.0
+texture = ExtResource( 27 )
+expand = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TextureRect/Background"]
+stream = ExtResource( 13 )
+
+[node name="TeamContainer" parent="TextureRect/Background" instance=ExtResource( 1 )]
+margin_left = 45.25
+margin_top = 199.0
+margin_right = 409.25
+margin_bottom = 318.0
+rect_scale = Vector2( 0.85, 0.85 )
+rect_pivot_offset = Vector2( 182, 59 )
+
+[node name="Label2" type="Label" parent="TextureRect/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 228.688
+margin_top = 26.5
+margin_right = -43.3125
+margin_bottom = -506.5
+custom_colors/font_color = Color( 0.309804, 0.396078, 0.462745, 1 )
+custom_fonts/font = SubResource( 50 )
+text = "Release works only if Miscrit not in team"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="SettingButton" type="TextureButton" parent="TextureRect/Background"]
+margin_left = 421.5
+margin_top = 6.5
+margin_right = 455.5
+margin_bottom = 38.5
+texture_normal = ExtResource( 35 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect/Background/SettingButton"]
+anims/spawn = SubResource( 49 )
+
+[node name="Setting" type="VBoxContainer" parent="TextureRect/Background/SettingButton"]
+visible = false
+margin_left = -57.4999
+margin_top = 33.75
+margin_right = 34.5001
+margin_bottom = 136.75
+rect_scale = Vector2( 1, 1e-05 )
+
+[node name="Rename" type="TextureButton" parent="TextureRect/Background/SettingButton/Setting"]
+margin_right = 92.0
+margin_bottom = 29.0
+texture_normal = ExtResource( 36 )
+
+[node name="Label" type="Label" parent="TextureRect/Background/SettingButton/Setting/Rename"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0.309804, 0.396078, 0.462745, 1 )
+custom_fonts/font = SubResource( 50 )
+text = "Rename"
+align = 1
+valign = 1
+
+[node name="Release" type="TextureButton" parent="TextureRect/Background/SettingButton/Setting"]
+margin_top = 33.0
+margin_right = 92.0
+margin_bottom = 62.0
+texture_normal = ExtResource( 36 )
+
+[node name="Label" type="Label" parent="TextureRect/Background/SettingButton/Setting/Release"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0.309804, 0.396078, 0.462745, 1 )
+custom_fonts/font = SubResource( 50 )
+text = "Release"
+align = 1
+valign = 1
+
+[node name="AbilitiesPanel" type="TextureRect" parent="TextureRect"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -225.75
+margin_top = -228.75
+margin_right = 224.25
+margin_bottom = -23.75
+texture = ExtResource( 9 )
+
+[node name="AbilitiesPanel" type="TextureRect" parent="TextureRect/AbilitiesPanel"]
+margin_left = 9.0
+margin_top = 53.0
+margin_right = 353.0
+margin_bottom = 208.0
+texture = ExtResource( 11 )
+
+[node name="GridContainer" type="GridContainer" parent="TextureRect/AbilitiesPanel/AbilitiesPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 6.0
+margin_top = 7.0
+margin_right = 20.0
+margin_bottom = 3.0
+custom_constants/vseparation = 5
+custom_constants/hseparation = -18
+columns = 2
+
+[node name="Ability" parent="TextureRect/AbilitiesPanel/AbilitiesPanel/GridContainer" instance=ExtResource( 19 )]
+
+[node name="Ability3" parent="TextureRect/AbilitiesPanel/AbilitiesPanel/GridContainer" instance=ExtResource( 19 )]
+margin_left = 159.0
+margin_right = 336.0
+
+[node name="Ability2" parent="TextureRect/AbilitiesPanel/AbilitiesPanel/GridContainer" instance=ExtResource( 19 )]
+margin_top = 65.0
+margin_bottom = 125.0
+
+[node name="Ability4" parent="TextureRect/AbilitiesPanel/AbilitiesPanel/GridContainer" instance=ExtResource( 19 )]
+margin_left = 159.0
+margin_top = 65.0
+margin_right = 336.0
+margin_bottom = 125.0
+
+[node name="PanelStats" type="TextureRect" parent="TextureRect/AbilitiesPanel"]
+margin_left = 359.5
+margin_top = 28.75
+margin_right = 441.5
+margin_bottom = 193.75
+texture = ExtResource( 10 )
+expand = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Stats" type="VBoxContainer" parent="TextureRect/AbilitiesPanel/PanelStats"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -36.0
+margin_top = -78.5
+margin_right = 37.0
+margin_bottom = 79.5
+custom_constants/separation = 2
+
+[node name="hp" type="HBoxContainer" parent="TextureRect/AbilitiesPanel/PanelStats/Stats"]
+margin_right = 73.0
+margin_bottom = 24.0
+
+[node name="icon" type="TextureRect" parent="TextureRect/AbilitiesPanel/PanelStats/Stats/hp"]
+margin_right = 29.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 29, 0 )
+texture = ExtResource( 21 )
+
+[node name="Value" type="Label" parent="TextureRect/AbilitiesPanel/PanelStats/Stats/hp"]
+margin_left = 33.0
+margin_top = 4.0
+margin_right = 56.0
+margin_bottom = 20.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 40 )
+text = "126"
+align = 1
+valign = 1
+
+[node name="spd" type="HBoxContainer" parent="TextureRect/AbilitiesPanel/PanelStats/Stats"]
+margin_top = 26.0
+margin_right = 73.0
+margin_bottom = 50.0
+
+[node name="icon" type="TextureRect" parent="TextureRect/AbilitiesPanel/PanelStats/Stats/spd"]
+margin_right = 29.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 29, 0 )
+texture = ExtResource( 26 )
+
+[node name="Value" type="Label" parent="TextureRect/AbilitiesPanel/PanelStats/Stats/spd"]
+margin_left = 33.0
+margin_top = 4.0
+margin_right = 47.0
+margin_bottom = 20.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 40 )
+text = "51"
+align = 1
+valign = 1
+
+[node name="ea" type="HBoxContainer" parent="TextureRect/AbilitiesPanel/PanelStats/Stats"]
+margin_top = 52.0
+margin_right = 73.0
+margin_bottom = 76.0
+
+[node name="icon" type="TextureRect" parent="TextureRect/AbilitiesPanel/PanelStats/Stats/ea"]
+margin_right = 29.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 29, 0 )
+texture = ExtResource( 22 )
+
+[node name="Value" type="Label" parent="TextureRect/AbilitiesPanel/PanelStats/Stats/ea"]
+margin_left = 33.0
+margin_top = 4.0
+margin_right = 47.0
+margin_bottom = 20.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 40 )
+text = "69"
+align = 1
+valign = 1
+
+[node name="pa" type="HBoxContainer" parent="TextureRect/AbilitiesPanel/PanelStats/Stats"]
+margin_top = 78.0
+margin_right = 73.0
+margin_bottom = 102.0
+
+[node name="icon" type="TextureRect" parent="TextureRect/AbilitiesPanel/PanelStats/Stats/pa"]
+margin_right = 29.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 29, 0 )
+texture = ExtResource( 23 )
+
+[node name="Value" type="Label" parent="TextureRect/AbilitiesPanel/PanelStats/Stats/pa"]
+margin_left = 33.0
+margin_top = 4.0
+margin_right = 47.0
+margin_bottom = 20.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 40 )
+text = "69"
+align = 1
+valign = 1
+
+[node name="ed" type="HBoxContainer" parent="TextureRect/AbilitiesPanel/PanelStats/Stats"]
+margin_top = 104.0
+margin_right = 73.0
+margin_bottom = 128.0
+
+[node name="icon" type="TextureRect" parent="TextureRect/AbilitiesPanel/PanelStats/Stats/ed"]
+margin_right = 29.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 29, 0 )
+texture = ExtResource( 25 )
+
+[node name="Value" type="Label" parent="TextureRect/AbilitiesPanel/PanelStats/Stats/ed"]
+margin_left = 33.0
+margin_top = 4.0
+margin_right = 47.0
+margin_bottom = 20.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 40 )
+text = "69"
+align = 1
+valign = 1
+
+[node name="pd" type="HBoxContainer" parent="TextureRect/AbilitiesPanel/PanelStats/Stats"]
+margin_top = 130.0
+margin_right = 73.0
+margin_bottom = 154.0
+
+[node name="icon" type="TextureRect" parent="TextureRect/AbilitiesPanel/PanelStats/Stats/pd"]
+margin_right = 29.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 29, 0 )
+texture = ExtResource( 24 )
+
+[node name="Value" type="Label" parent="TextureRect/AbilitiesPanel/PanelStats/Stats/pd"]
+margin_left = 33.0
+margin_top = 4.0
+margin_right = 47.0
+margin_bottom = 20.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 40 )
+text = "69"
+align = 1
+valign = 1
+
+[node name="Abi" type="Label" parent="TextureRect/AbilitiesPanel"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 40.75
+margin_top = -70.0
+margin_right = 120.75
+margin_bottom = -51.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 41 )
+text = "Abilities"
+align = 1
+valign = 1
+
+[node name="Stats" type="Label" parent="TextureRect/AbilitiesPanel"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 349.5
+margin_top = -93.75
+margin_right = 429.5
+margin_bottom = -74.75
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 41 )
+text = "Stats"
+align = 1
+valign = 1
+
+[node name="AbillitiesMore" type="TextureButton" parent="TextureRect/AbilitiesPanel"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 130.75
+margin_top = -70.0
+margin_right = 146.75
+margin_bottom = -51.0
+texture_normal = ExtResource( 8 )
+expand = true
+
+[node name="AbillitiesLess" type="TextureButton" parent="TextureRect/AbilitiesPanel"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 154.5
+margin_top = -70.0
+margin_right = 170.5
+margin_bottom = -51.0
+texture_normal = ExtResource( 8 )
+expand = true
+flip_h = true
+
+[node name="Close" type="TextureButton" parent="TextureRect"]
+margin_left = 470.0
+margin_top = -15.0
+margin_right = 512.0
+margin_bottom = 26.0
+texture_normal = ExtResource( 28 )
+expand = true
+stretch_mode = 3
+
+[node name="Train" type="TextureButton" parent="TextureRect"]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -153.75
+margin_top = 6.25
+margin_right = -6.75
+margin_bottom = 58.25
+texture_normal = ExtResource( 17 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="TextureRect/Train"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 14 )
+text = "TRAIN NOW"
+align = 1
+valign = 1
+
+[node name="MaxEvolution" type="Label" parent="TextureRect"]
+anchor_right = 1.0
+margin_bottom = 41.0
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_fonts/font = SubResource( 39 )
+text = "MAX EVOLUTION"
+align = 1
+valign = 1
+
+[node name="Evolve" type="TextureButton" parent="TextureRect"]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 6.25
+margin_top = 6.25
+margin_right = 153.25
+margin_bottom = 58.25
+texture_normal = ExtResource( 16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="TextureRect/Evolve"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 14 )
+text = "EVOLVE NOW"
+align = 1
+valign = 1
+
+[node name="AbillityDescription" parent="." instance=ExtResource( 5 )]
+visible = false
+margin_right = 228.0
+margin_bottom = 113.0
+
+[node name="StatsPopup" type="Control" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Stats_Exit" type="TextureButton" parent="StatsPopup"]
+self_modulate = Color( 0, 0, 0, 0.313726 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -1064.5
+margin_top = -681.0
+margin_right = 1064.5
+margin_bottom = 681.0
+texture_normal = ExtResource( 10 )
+expand = true
+
+[node name="Panel" type="TextureRect" parent="StatsPopup"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -407.5
+margin_top = -204.5
+margin_right = 7.5
+margin_bottom = 202.5
+texture = ExtResource( 7 )
+expand = true
+
+[node name="Back" type="TextureRect" parent="StatsPopup/Panel"]
+show_behind_parent = true
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -191.5
+margin_top = 3.0
+margin_right = 191.5
+margin_bottom = 395.0
+texture = ExtResource( 27 )
+expand = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="StatsPopup/Panel/Back"]
+stream = ExtResource( 13 )
+
+[node name="TeamContainer" parent="StatsPopup/Panel/Back" instance=ExtResource( 1 )]
+margin_left = 4.50003
+margin_top = 105.5
+margin_right = 368.5
+margin_bottom = 224.5
+rect_scale = Vector2( 0.85, 0.85 )
+rect_pivot_offset = Vector2( 182, 59 )
+
+[node name="Stats" type="TextureRect" parent="StatsPopup/Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -186.5
+margin_top = -170.0
+margin_right = 186.5
+margin_bottom = -17.0
+texture = ExtResource( 31 )
+expand = true
+
+[node name="Label" type="Label" parent="StatsPopup/Panel/Stats"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -186.5
+margin_top = -75.0
+margin_right = -106.5
+margin_bottom = -52.0
+custom_fonts/font = SubResource( 29 )
+text = "Stats"
+align = 1
+valign = 1
+
+[node name="GridContainer" type="GridContainer" parent="StatsPopup/Panel/Stats"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 12.0
+margin_top = 25.0
+margin_right = -8.0
+margin_bottom = -6.0
+custom_constants/vseparation = 5
+custom_constants/hseparation = 7
+columns = 2
+
+[node name="hp" type="TextureRect" parent="StatsPopup/Panel/Stats/GridContainer"]
+margin_right = 173.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 173, 35 )
+texture = ExtResource( 14 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="StatsPopup/Panel/Stats/GridContainer/hp"]
+margin_left = -3.5
+margin_top = 4.5
+margin_right = 21.5
+margin_bottom = 28.5
+texture = ExtResource( 21 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StatsPopup/Panel/Stats/GridContainer/hp"]
+margin_left = 24.0
+margin_right = 170.0
+margin_bottom = 40.0
+
+[node name="Name" type="Label" parent="StatsPopup/Panel/Stats/GridContainer/hp/HBoxContainer"]
+margin_top = 16.0
+margin_right = 66.0
+margin_bottom = 24.0
+custom_colors/font_color = Color( 0.0980392, 0.270588, 0.360784, 1 )
+custom_fonts/font = SubResource( 28 )
+text = "Max Health"
+
+[node name="Value" type="Label" parent="StatsPopup/Panel/Stats/GridContainer/hp/HBoxContainer"]
+margin_left = 70.0
+margin_top = 15.0
+margin_right = 84.0
+margin_bottom = 25.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 30 )
+text = "20"
+
+[node name="Buff" type="Label" parent="StatsPopup/Panel/Stats/GridContainer/hp/HBoxContainer"]
+visible = false
+self_modulate = Color( 0.435294, 0.803922, 0.027451, 1 )
+margin_left = 88.0
+margin_top = 15.0
+margin_right = 104.0
+margin_bottom = 25.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 30 )
+text = "+4"
+
+[node name="pa" type="TextureRect" parent="StatsPopup/Panel/Stats/GridContainer"]
+margin_left = 180.0
+margin_right = 353.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 173, 35 )
+texture = ExtResource( 14 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="StatsPopup/Panel/Stats/GridContainer/pa"]
+margin_left = -3.5
+margin_top = 4.5
+margin_right = 21.5
+margin_bottom = 28.5
+texture = ExtResource( 23 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StatsPopup/Panel/Stats/GridContainer/pa"]
+margin_left = 24.0
+margin_right = 170.0
+margin_bottom = 40.0
+
+[node name="Name" type="Label" parent="StatsPopup/Panel/Stats/GridContainer/pa/HBoxContainer"]
+margin_top = 16.0
+margin_right = 90.0
+margin_bottom = 24.0
+custom_colors/font_color = Color( 0.0980392, 0.270588, 0.360784, 1 )
+custom_fonts/font = SubResource( 28 )
+text = "Physical Attack"
+
+[node name="Value" type="Label" parent="StatsPopup/Panel/Stats/GridContainer/pa/HBoxContainer"]
+margin_left = 94.0
+margin_top = 15.0
+margin_right = 108.0
+margin_bottom = 25.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 30 )
+text = "20"
+
+[node name="Buff" type="Label" parent="StatsPopup/Panel/Stats/GridContainer/pa/HBoxContainer"]
+visible = false
+self_modulate = Color( 0.435294, 0.803922, 0.027451, 1 )
+margin_left = 112.0
+margin_top = 15.0
+margin_right = 128.0
+margin_bottom = 25.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 30 )
+text = "+4"
+
+[node name="spd" type="TextureRect" parent="StatsPopup/Panel/Stats/GridContainer"]
+margin_top = 40.0
+margin_right = 173.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 173, 35 )
+texture = ExtResource( 14 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="StatsPopup/Panel/Stats/GridContainer/spd"]
+margin_left = -3.5
+margin_top = 4.5
+margin_right = 21.5
+margin_bottom = 28.5
+texture = ExtResource( 26 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StatsPopup/Panel/Stats/GridContainer/spd"]
+margin_left = 24.0
+margin_right = 170.0
+margin_bottom = 40.0
+
+[node name="Name" type="Label" parent="StatsPopup/Panel/Stats/GridContainer/spd/HBoxContainer"]
+margin_top = 16.0
+margin_right = 35.0
+margin_bottom = 24.0
+custom_colors/font_color = Color( 0.0980392, 0.270588, 0.360784, 1 )
+custom_fonts/font = SubResource( 28 )
+text = "Speed"
+
+[node name="Value" type="Label" parent="StatsPopup/Panel/Stats/GridContainer/spd/HBoxContainer"]
+margin_left = 39.0
+margin_top = 15.0
+margin_right = 53.0
+margin_bottom = 25.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 30 )
+text = "20"
+
+[node name="Buff" type="Label" parent="StatsPopup/Panel/Stats/GridContainer/spd/HBoxContainer"]
+visible = false
+self_modulate = Color( 0.435294, 0.803922, 0.027451, 1 )
+margin_left = 57.0
+margin_top = 15.0
+margin_right = 73.0
+margin_bottom = 25.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 30 )
+text = "+4"
+
+[node name="ed" type="TextureRect" parent="StatsPopup/Panel/Stats/GridContainer"]
+margin_left = 180.0
+margin_top = 40.0
+margin_right = 353.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 173, 35 )
+texture = ExtResource( 14 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="StatsPopup/Panel/Stats/GridContainer/ed"]
+margin_left = -3.5
+margin_top = 4.5
+margin_right = 21.5
+margin_bottom = 28.5
+texture = ExtResource( 25 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StatsPopup/Panel/Stats/GridContainer/ed"]
+margin_left = 24.0
+margin_right = 170.0
+margin_bottom = 40.0
+
+[node name="Name" type="Label" parent="StatsPopup/Panel/Stats/GridContainer/ed/HBoxContainer"]
+margin_top = 16.0
+margin_right = 109.0
+margin_bottom = 24.0
+custom_colors/font_color = Color( 0.0980392, 0.270588, 0.360784, 1 )
+custom_fonts/font = SubResource( 28 )
+text = "Elemental Defence"
+
+[node name="Value" type="Label" parent="StatsPopup/Panel/Stats/GridContainer/ed/HBoxContainer"]
+margin_left = 113.0
+margin_top = 15.0
+margin_right = 127.0
+margin_bottom = 25.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 30 )
+text = "20"
+
+[node name="Buff" type="Label" parent="StatsPopup/Panel/Stats/GridContainer/ed/HBoxContainer"]
+visible = false
+self_modulate = Color( 0.435294, 0.803922, 0.027451, 1 )
+margin_left = 131.0
+margin_top = 15.0
+margin_right = 147.0
+margin_bottom = 25.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 30 )
+text = "+4"
+
+[node name="ea" type="TextureRect" parent="StatsPopup/Panel/Stats/GridContainer"]
+margin_top = 80.0
+margin_right = 173.0
+margin_bottom = 115.0
+rect_min_size = Vector2( 173, 35 )
+texture = ExtResource( 14 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="StatsPopup/Panel/Stats/GridContainer/ea"]
+margin_left = -3.5
+margin_top = 4.5
+margin_right = 21.5
+margin_bottom = 28.5
+texture = ExtResource( 22 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StatsPopup/Panel/Stats/GridContainer/ea"]
+margin_left = 24.0
+margin_right = 170.0
+margin_bottom = 40.0
+
+[node name="Name" type="Label" parent="StatsPopup/Panel/Stats/GridContainer/ea/HBoxContainer"]
+margin_top = 16.0
+margin_right = 95.0
+margin_bottom = 24.0
+custom_colors/font_color = Color( 0.0980392, 0.270588, 0.360784, 1 )
+custom_fonts/font = SubResource( 28 )
+text = "Elemntal Attack"
+
+[node name="Value" type="Label" parent="StatsPopup/Panel/Stats/GridContainer/ea/HBoxContainer"]
+margin_left = 99.0
+margin_top = 15.0
+margin_right = 113.0
+margin_bottom = 25.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 30 )
+text = "20"
+
+[node name="Buff" type="Label" parent="StatsPopup/Panel/Stats/GridContainer/ea/HBoxContainer"]
+visible = false
+self_modulate = Color( 0.435294, 0.803922, 0.027451, 1 )
+margin_left = 117.0
+margin_top = 15.0
+margin_right = 133.0
+margin_bottom = 25.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 30 )
+text = "+4"
+
+[node name="pd" type="TextureRect" parent="StatsPopup/Panel/Stats/GridContainer"]
+margin_left = 180.0
+margin_top = 80.0
+margin_right = 353.0
+margin_bottom = 115.0
+rect_min_size = Vector2( 173, 35 )
+texture = ExtResource( 14 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="StatsPopup/Panel/Stats/GridContainer/pd"]
+margin_left = -3.5
+margin_top = 4.5
+margin_right = 21.5
+margin_bottom = 28.5
+texture = ExtResource( 24 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StatsPopup/Panel/Stats/GridContainer/pd"]
+margin_left = 24.0
+margin_right = 170.0
+margin_bottom = 40.0
+
+[node name="Name" type="Label" parent="StatsPopup/Panel/Stats/GridContainer/pd/HBoxContainer"]
+margin_top = 16.0
+margin_right = 97.0
+margin_bottom = 24.0
+custom_colors/font_color = Color( 0.0980392, 0.270588, 0.360784, 1 )
+custom_fonts/font = SubResource( 28 )
+text = "Physical Defence"
+
+[node name="Value" type="Label" parent="StatsPopup/Panel/Stats/GridContainer/pd/HBoxContainer"]
+margin_left = 101.0
+margin_top = 15.0
+margin_right = 115.0
+margin_bottom = 25.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 30 )
+text = "20"
+
+[node name="Buff" type="Label" parent="StatsPopup/Panel/Stats/GridContainer/pd/HBoxContainer"]
+visible = false
+self_modulate = Color( 0.435294, 0.803922, 0.027451, 1 )
+margin_left = 119.0
+margin_top = 15.0
+margin_right = 135.0
+margin_bottom = 25.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 30 )
+text = "+4"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StatsPopup/Panel/Stats"]
+anims/Exit = SubResource( 35 )
+anims/Spawn = SubResource( 36 )
+
+[node name="Notice" type="Label" parent="StatsPopup/Panel"]
+anchor_right = 1.0
+margin_top = 5.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 31 )
+text = "Elite Pidoras is now level 20!"
+align = 1
+valign = 1
+
+[node name="Continue" type="TextureButton" parent="StatsPopup/Panel"]
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -41.0
+margin_top = -2.0
+margin_right = 41.0
+margin_bottom = 25.0
+texture_normal = ExtResource( 2 )
+expand = true
+
+[node name="Notice2" type="TextureRect" parent="StatsPopup/Panel"]
+show_behind_parent = true
+margin_left = 10.5
+margin_top = -29.5
+margin_right = 157.5
+margin_bottom = 53.5
+rect_scale = Vector2( 0.85, 0.85 )
+texture = ExtResource( 16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="StatsPopup/Panel/Notice2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -37.0
+custom_fonts/font = SubResource( 37 )
+text = "Level Up!"
+align = 1
+valign = 1
+
+[node name="evol1" type="TextureRect" parent="StatsPopup/Panel"]
+margin_left = 21.0
+margin_top = 25.0
+margin_right = 63.0
+margin_bottom = 67.0
+texture = ExtResource( 29 )
+expand = true
+
+[node name="Icon" parent="StatsPopup/Panel/evol1" instance=ExtResource( 30 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -18.0
+margin_top = -18.0
+margin_right = 18.0
+margin_bottom = 18.0
+
+[node name="evol2" type="TextureRect" parent="StatsPopup/Panel"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -64.0
+margin_top = 25.0
+margin_right = -22.0
+margin_bottom = 67.0
+texture = ExtResource( 29 )
+expand = true
+
+[node name="Icon" parent="StatsPopup/Panel/evol2" instance=ExtResource( 30 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -18.0
+margin_top = -18.0
+margin_right = 18.0
+margin_bottom = 18.0
+
+[node name="LevelBox" type="HBoxContainer" parent="StatsPopup/Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -144.5
+margin_top = -154.5
+margin_right = 144.5
+margin_bottom = -143.5
+custom_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="StatsPopup/Panel/LevelBox"]
+margin_right = 32.0
+margin_bottom = 11.0
+rect_min_size = Vector2( 32, 11 )
+texture = SubResource( 44 )
+expand = true
+
+[node name="Panel" type="Panel" parent="StatsPopup/Panel/LevelBox/TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 32, 11 )
+custom_styles/panel = SubResource( 45 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureRect2" type="TextureRect" parent="StatsPopup/Panel/LevelBox"]
+modulate = Color( 0.0588235, 0.882353, 0, 1 )
+margin_left = 32.0
+margin_right = 64.0
+margin_bottom = 11.0
+rect_min_size = Vector2( 32, 11 )
+texture = SubResource( 44 )
+expand = true
+
+[node name="Panel" type="Panel" parent="StatsPopup/Panel/LevelBox/TextureRect2"]
+modulate = Color( 0.141176, 1, 0.0784314, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 32, 11 )
+custom_styles/panel = SubResource( 45 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureRect3" type="TextureRect" parent="StatsPopup/Panel/LevelBox"]
+modulate = Color( 0.0588235, 0.882353, 0, 1 )
+margin_left = 64.0
+margin_right = 96.0
+margin_bottom = 11.0
+rect_min_size = Vector2( 32, 11 )
+texture = SubResource( 44 )
+expand = true
+
+[node name="Panel" type="Panel" parent="StatsPopup/Panel/LevelBox/TextureRect3"]
+modulate = Color( 0.141176, 1, 0.0784314, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 32, 11 )
+custom_styles/panel = SubResource( 45 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureRect4" type="TextureRect" parent="StatsPopup/Panel/LevelBox"]
+modulate = Color( 0.141176, 1, 0.0784314, 1 )
+margin_left = 96.0
+margin_right = 128.0
+margin_bottom = 11.0
+rect_min_size = Vector2( 32, 11 )
+texture = SubResource( 44 )
+expand = true
+
+[node name="Panel" type="Panel" parent="StatsPopup/Panel/LevelBox/TextureRect4"]
+modulate = Color( 0.141176, 1, 0.0784314, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 32, 11 )
+custom_styles/panel = SubResource( 45 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureRect5" type="TextureRect" parent="StatsPopup/Panel/LevelBox"]
+modulate = Color( 0.141176, 1, 0.0784314, 1 )
+margin_left = 128.0
+margin_right = 160.0
+margin_bottom = 11.0
+rect_min_size = Vector2( 32, 11 )
+texture = SubResource( 44 )
+expand = true
+
+[node name="Panel" type="Panel" parent="StatsPopup/Panel/LevelBox/TextureRect5"]
+modulate = Color( 0.141176, 1, 0.0784314, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 32, 11 )
+custom_styles/panel = SubResource( 45 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureRect6" type="TextureRect" parent="StatsPopup/Panel/LevelBox"]
+modulate = Color( 0.141176, 1, 0.0784314, 1 )
+margin_left = 160.0
+margin_right = 192.0
+margin_bottom = 11.0
+rect_min_size = Vector2( 32, 11 )
+texture = SubResource( 44 )
+expand = true
+
+[node name="Panel" type="Panel" parent="StatsPopup/Panel/LevelBox/TextureRect6"]
+modulate = Color( 0.141176, 1, 0.0784314, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 32, 11 )
+custom_styles/panel = SubResource( 45 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureRect7" type="TextureRect" parent="StatsPopup/Panel/LevelBox"]
+modulate = Color( 0.141176, 1, 0.0784314, 1 )
+margin_left = 192.0
+margin_right = 224.0
+margin_bottom = 11.0
+rect_min_size = Vector2( 32, 11 )
+texture = SubResource( 44 )
+expand = true
+
+[node name="Panel" type="Panel" parent="StatsPopup/Panel/LevelBox/TextureRect7"]
+modulate = Color( 0.141176, 1, 0.0784314, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 32, 11 )
+custom_styles/panel = SubResource( 45 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureRect8" type="TextureRect" parent="StatsPopup/Panel/LevelBox"]
+modulate = Color( 0.141176, 1, 0.0784314, 1 )
+margin_left = 224.0
+margin_right = 256.0
+margin_bottom = 11.0
+rect_min_size = Vector2( 32, 11 )
+texture = SubResource( 44 )
+expand = true
+
+[node name="Panel" type="Panel" parent="StatsPopup/Panel/LevelBox/TextureRect8"]
+modulate = Color( 0.141176, 1, 0.0784314, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 32, 11 )
+custom_styles/panel = SubResource( 45 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureRect9" type="TextureRect" parent="StatsPopup/Panel/LevelBox"]
+modulate = Color( 0.141176, 1, 0.0784314, 1 )
+margin_left = 256.0
+margin_right = 288.0
+margin_bottom = 11.0
+rect_min_size = Vector2( 32, 11 )
+texture = SubResource( 44 )
+expand = true
+
+[node name="Panel" type="Panel" parent="StatsPopup/Panel/LevelBox/TextureRect9"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 32, 11 )
+custom_styles/panel = SubResource( 45 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AbillityPopup" type="Control" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+
+[node name="Abillity_Exit" type="TextureButton" parent="AbillityPopup"]
+visible = false
+self_modulate = Color( 0, 0, 0, 0.313726 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -1064.5
+margin_top = -681.0
+margin_right = 1064.5
+margin_bottom = 681.0
+texture_normal = ExtResource( 10 )
+expand = true
+
+[node name="Abi" type="TextureRect" parent="AbillityPopup"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -392.5
+margin_top = -93.0
+margin_right = -7.50018
+margin_bottom = 93.0
+texture = ExtResource( 32 )
+expand = true
+stretch_mode = 6
+
+[node name="Notice" type="Label" parent="AbillityPopup/Abi"]
+anchor_right = 1.0
+margin_top = 2.0
+margin_bottom = 33.0
+custom_fonts/font = SubResource( 46 )
+text = "Pidorashas has learned a new Abillity!"
+align = 1
+valign = 1
+
+[node name="Background" type="CenterContainer" parent="AbillityPopup/Abi"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="GridContainer" type="GridContainer" parent="AbillityPopup/Abi/Background"]
+margin_left = 104.0
+margin_top = 63.0
+margin_right = 279.0
+margin_bottom = 123.0
+columns = 2
+
+[node name="Ability" parent="AbillityPopup/Abi/Background/GridContainer" instance=ExtResource( 19 )]
+margin_right = 175.0
+texture_normal = ExtResource( 33 )
+
+[node name="Continue" type="TextureButton" parent="AbillityPopup/Abi"]
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -41.0
+margin_top = -2.0
+margin_right = 41.0
+margin_bottom = 25.0
+texture_normal = ExtResource( 2 )
+expand = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AbillityPopup"]
+anims/Exit = SubResource( 47 )
+anims/Spawn = SubResource( 48 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Spawn = SubResource( 42 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 34 )
+
+[node name="RenamePopup" type="Control" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+
+[node name="Rename_Exit" type="TextureButton" parent="RenamePopup"]
+self_modulate = Color( 0, 0, 0, 0.313726 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -1064.5
+margin_top = -681.0
+margin_right = 1064.5
+margin_bottom = 681.0
+texture_normal = ExtResource( 10 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="RenamePopup"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -162.5
+margin_top = -61.0
+margin_right = 162.5
+margin_bottom = 61.0
+texture = ExtResource( 31 )
+expand = true
+
+[node name="Cancel" type="TextureButton" parent="RenamePopup/TextureRect"]
+margin_left = 217.0
+margin_top = 119.0
+margin_right = 309.0
+margin_bottom = 148.0
+texture_normal = ExtResource( 36 )
+
+[node name="Label" type="Label" parent="RenamePopup/TextureRect/Cancel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0.309804, 0.396078, 0.462745, 1 )
+custom_fonts/font = SubResource( 50 )
+text = "Cancel"
+align = 1
+valign = 1
+
+[node name="Save" type="TextureButton" parent="RenamePopup/TextureRect"]
+margin_left = 118.0
+margin_top = 119.0
+margin_right = 210.0
+margin_bottom = 148.0
+texture_normal = ExtResource( 36 )
+
+[node name="Label" type="Label" parent="RenamePopup/TextureRect/Save"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0.309804, 0.396078, 0.462745, 1 )
+custom_fonts/font = SubResource( 50 )
+text = "Save"
+align = 1
+valign = 1
+
+[node name="NameLine" type="LineEdit" parent="RenamePopup/TextureRect"]
+margin_left = 15.5
+margin_top = 44.0
+margin_right = 309.5
+margin_bottom = 82.0
+
+[node name="Label" type="Label" parent="RenamePopup/TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -19.5
+margin_top = -3.0
+margin_right = -214.5
+margin_bottom = -106.0
+custom_colors/font_color = Color( 0.788235, 0.909804, 1, 1 )
+custom_fonts/font = SubResource( 51 )
+text = "Rename"
+align = 1
+valign = 1
+
+[node name="Close" type="TextureButton" parent="RenamePopup/TextureRect"]
+margin_left = 302.5
+margin_top = -18.0
+margin_right = 344.5
+margin_bottom = 23.0
+texture_normal = ExtResource( 28 )
+expand = true
+stretch_mode = 3
+
+[connection signal="visibility_changed" from="." to="." method="_on_Train_visibility_changed"]
+[connection signal="pressed" from="TextureRect/All/OtherMore" to="." method="_on_OtherMore_pressed"]
+[connection signal="pressed" from="TextureRect/All/OtherLess" to="." method="_on_OtherLess_pressed"]
+[connection signal="pressed" from="TextureRect/Background/SettingButton" to="." method="_on_SettingButton_pressed"]
+[connection signal="pressed" from="TextureRect/Background/SettingButton/Setting/Rename" to="." method="_on_Rename_pressed"]
+[connection signal="pressed" from="TextureRect/Background/SettingButton/Setting/Release" to="." method="_on_Release_pressed"]
+[connection signal="pressed" from="TextureRect/AbilitiesPanel/AbillitiesMore" to="." method="_on_AbillitiesMore_pressed"]
+[connection signal="pressed" from="TextureRect/AbilitiesPanel/AbillitiesLess" to="." method="_on_AbillitiesLess_pressed"]
+[connection signal="pressed" from="TextureRect/Close" to="." method="_on_Close_pressed"]
+[connection signal="pressed" from="TextureRect/Train" to="." method="_on_Train_pressed"]
+[connection signal="pressed" from="StatsPopup/Stats_Exit" to="." method="_on_Stats_Exit_pressed"]
+[connection signal="pressed" from="StatsPopup/Panel/Continue" to="." method="_on_Stats_Exit_pressed"]
+[connection signal="pressed" from="AbillityPopup/Abillity_Exit" to="." method="_on_Abillity_Exit_pressed"]
+[connection signal="pressed" from="AbillityPopup/Abi/Continue" to="." method="_on_Abillity_Exit_pressed"]
+[connection signal="pressed" from="RenamePopup/Rename_Exit" to="." method="_on_Rename_Exit_pressed"]
+[connection signal="pressed" from="RenamePopup/TextureRect/Cancel" to="." method="_on_Rename_Exit_pressed"]
+[connection signal="pressed" from="RenamePopup/TextureRect/Save" to="." method="_on_SaveName_pressed"]
+[connection signal="pressed" from="RenamePopup/TextureRect/Close" to="." method="_on_Rename_Exit_pressed"]

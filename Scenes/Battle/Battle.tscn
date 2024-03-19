@@ -1,0 +1,1162 @@
+[gd_scene load_steps=43 format=2]
+
+[ext_resource path="res://Assets/Battle/Run.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Battle/MiscritInfoContainer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Battle/112_FightActionTabSelected.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Font/2_MiscriaMedium_Miscria-Medium.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Assets/Battle/Background/wallpaperflare.com_wallpaper.jpg" type="Texture" id=5]
+[ext_resource path="res://Assets/Battle/118_FightMessageBoxBG.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Battle/TeamContainer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Battle/Battle.gd" type="Script" id=8]
+[ext_resource path="res://Assets/Battle/BattleResult.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Battle/Continue.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Battle/tap_arrow.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Battle/tap_arrow_selected.png" type="Texture" id=12]
+[ext_resource path="res://Scenes/Battle/AbillityDescription.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Assets/Ui/114_FightCaptureBook.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Battle/Capture_Particle.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Ui/115_FightCaptureText.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Ui/246_TrainingPartyBG.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Battle/113_FightActionTabUnselected.png" type="Texture" id=18]
+[ext_resource path="res://Scenes/Battle/BattleSwitchContainer.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Assets/Battle/Capture.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Miscrits/Miscrits/4a.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Battle/AbilitiesPanel.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Ui/266_VisitingNameBG.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Ui/276_WorldMiscripediaBook.png" type="Texture" id=25]
+
+[sub_resource type="StyleBoxFlat" id=21]
+bg_color = Color( 0.32549, 0.133333, 0.0705882, 1 )
+border_width_left = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.501961, 0.337255, 0.152941, 1 )
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+anti_aliasing_size = 1.655
+
+[sub_resource type="DynamicFont" id=22]
+size = 13
+outline_size = 2
+outline_color = Color( 0, 0, 0, 0 )
+use_filter = true
+extra_spacing_space = 1
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.682353, 0.811765, 0.835294, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.192157, 0.25098, 0.309804, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color( 0, 0, 0, 0.435294 )
+shadow_size = 1
+shadow_offset = Vector2( 0, 2 )
+
+[sub_resource type="DynamicFontData" id=29]
+font_path = "res://Assets/Font/19_BorisBlackBloxx.ttf"
+
+[sub_resource type="DynamicFont" id=30]
+size = 13
+outline_size = 2
+outline_color = Color( 0, 0, 0, 0 )
+use_filter = true
+extra_spacing_bottom = -3
+extra_spacing_char = 1
+extra_spacing_space = -1
+font_data = SubResource( 29 )
+
+[sub_resource type="DynamicFont" id=20]
+size = 19
+outline_size = 2
+outline_color = Color( 0, 0, 0, 0 )
+use_filter = true
+extra_spacing_space = 1
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxFlat" id=31]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=24]
+bg_color = Color( 0.231373, 0.317647, 0.341176, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="DynamicFontData" id=12]
+font_path = "res://Assets/Font/2_MiscriaMedium_Miscria-Medium.ttf"
+
+[sub_resource type="DynamicFont" id=25]
+size = 15
+outline_size = 1
+outline_color = Color( 0.0823529, 0.0823529, 0.0823529, 0.984314 )
+use_filter = true
+extra_spacing_char = 2
+extra_spacing_space = 1
+font_data = SubResource( 12 )
+
+[sub_resource type="Gradient" id=34]
+colors = PoolColorArray( 0.795898, 1, 0, 1, 1, 1, 1, 1 )
+
+[sub_resource type="DynamicFont" id=35]
+size = 19
+outline_size = 2
+outline_color = Color( 0, 0, 0, 0.415686 )
+use_filter = true
+extra_spacing_space = 1
+font_data = ExtResource( 4 )
+
+[sub_resource type="Animation" id=36]
+resource_name = "Close"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Darkness:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.34902 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Captured:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1, 0.5 ),
+"transitions": PoolRealArray( 2, 0.5 ),
+"update": 0,
+"values": [ Vector2( 273, 209 ), Vector2( 273, 659 ) ]
+}
+
+[sub_resource type="Animation" id=37]
+resource_name = "Spawn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Darkness:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.34902 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Captured:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1, 0.5 ),
+"transitions": PoolRealArray( 0.5, 2 ),
+"update": 0,
+"values": [ Vector2( -527, 209 ), Vector2( 273, 209 ) ]
+}
+
+[sub_resource type="Animation" id=32]
+resource_name = "Capture"
+length = 3.9
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/TextureRect/AnimatorBehind/BookAnimate:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 0.5, 2 ),
+"update": 0,
+"values": [ Vector2( 0.0125573, 0.0127846 ), Vector2( 0.7, 0.7 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/TextureRect/AnimatorBehind/BookAnimate:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 0.5, 2 ),
+"update": 0,
+"values": [ Vector2( 376, 91 ), Vector2( 737, 366 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer/Capture/BookAnimate2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CanvasLayer/TextureRect/AnimatorBehind/BookAnimate:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CanvasLayer/Capture/BookAnimate2:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 3.1, 3.4, 3.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2.22, 2.22 ), Vector2( 0, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CanvasLayer/Capture/BookAnimate3:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 2.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("CanvasLayer/Capture/BookAnimate3:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 2.4, 2.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 3, 3 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("CanvasLayer/Capture/BookAnimate3:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 2.4, 2.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("CanvasLayer/Capture/CPUParticles2D:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0.7, 2.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("CanvasLayer/Capture/CPUParticles2D:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.7, 0.9, 2.2, 2.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("CanvasLayer/Capture/CPUParticles2D:emitting")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.7, 2.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("CanvasLayer/TextureRect/AnimatorBehind/ColorRect:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 2.3, 2.4, 3.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("CanvasLayer/TextureRect/AnimatorBehind/ColorRect:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 2.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("CanvasLayer/TextureRect/AnimatorBehind:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 0.01, 3.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("CanvasLayer/Capture:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 0.01, 3.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+
+[sub_resource type="Animation" id=33]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/TextureRect/AnimatorBehind/BookAnimate:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 737, 366 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/TextureRect/AnimatorBehind/BookAnimate:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.18044, 0.149362 ) ]
+}
+
+[sub_resource type="Animation" id=26]
+resource_name = "exit"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/MainUi/AbillityPanel:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 168, 487 ), Vector2( 168, 667 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/MainUi/Run:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 151, 424 ), Vector2( 151, 604 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer/MainUi/Our:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 220, 6 ), Vector2( 220, -144 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CanvasLayer/MainUi/Miscripedia:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 473.5, 6 ), Vector2( 473.5, -144 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CanvasLayer/MainUi/Foe:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 630, 6 ), Vector2( 630, -144 ) ]
+}
+
+[sub_resource type="Animation" id=28]
+resource_name = "spawn_result"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/Result/Panel:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 0.5, 2 ),
+"update": 0,
+"values": [ Vector2( 27.5, 47.5 ), Vector2( 227.5, 47.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/Result/Panel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 0.5, 2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.160784 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer/Result/Darkness:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.309804 ) ]
+}
+
+[node name="Battle" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 8 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -1325.0
+margin_top = -1240.0
+margin_right = 1325.0
+margin_bottom = 360.0
+rect_pivot_offset = Vector2( 1325, 1240 )
+texture = ExtResource( 5 )
+
+[node name="AnimatorBehind" type="Control" parent="CanvasLayer/TextureRect"]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -512.0
+margin_top = -660.0
+margin_right = 512.0
+margin_bottom = -60.0
+
+[node name="BookAnimate" type="Sprite" parent="CanvasLayer/TextureRect/AnimatorBehind"]
+position = Vector2( 737, 366 )
+scale = Vector2( 0.18044, 0.149362 )
+texture = ExtResource( 14 )
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/TextureRect/AnimatorBehind"]
+visible = false
+modulate = Color( 1, 1, 1, 0.062909 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -1438.5
+margin_top = -831.5
+margin_right = 1438.5
+margin_bottom = 831.5
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/TextureRect"]
+
+[node name="TeamContainer" parent="CanvasLayer/TextureRect" instance=ExtResource( 7 )]
+margin_left = 925.0
+margin_top = 1190.0
+margin_right = 1289.0
+margin_bottom = 1309.0
+rect_pivot_offset = Vector2( 182, 59 )
+flip = true
+
+[node name="FoeContainer" parent="CanvasLayer/TextureRect" instance=ExtResource( 7 )]
+margin_left = 1365.0
+margin_top = 1190.0
+margin_right = 1729.0
+margin_bottom = 1309.0
+rect_pivot_offset = Vector2( 182, 59 )
+
+[node name="MainUi" type="Control" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+
+[node name="Miscripedia" type="TextureRect" parent="CanvasLayer/MainUi"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -38.5
+margin_top = -444.0
+margin_right = 38.5
+margin_bottom = -360.0
+texture = ExtResource( 25 )
+
+[node name="Capture" type="TextureButton" parent="CanvasLayer/MainUi/Miscripedia"]
+self_modulate = Color( 0.878431, 0.709804, 0.411765, 1 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -46.0
+margin_top = 5.0
+margin_right = 47.0
+margin_bottom = 31.0
+texture_normal = ExtResource( 24 )
+expand = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MainUi/Miscripedia/Capture"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -38.5
+margin_top = -9.0
+margin_right = 38.5
+margin_bottom = 9.0
+texture = ExtResource( 16 )
+
+[node name="Panel" type="Panel" parent="CanvasLayer/MainUi/Miscripedia/Capture"]
+visible = false
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -28.0
+margin_top = -1.0
+margin_right = 28.0
+margin_bottom = 16.0
+custom_styles/panel = SubResource( 21 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Percent" type="Label" parent="CanvasLayer/MainUi/Miscripedia/Capture/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 22 )
+text = "0%"
+align = 1
+valign = 1
+
+[node name="Our" type="VBoxContainer" parent="CanvasLayer/MainUi"]
+margin_left = 220.0
+margin_top = -144.0
+margin_right = 376.0
+margin_bottom = 154.0
+
+[node name="MiscritInfoContainer" parent="CanvasLayer/MainUi/Our" instance=ExtResource( 2 )]
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 156.0
+margin_bottom = 79.0
+
+[node name="MiscritInfoContainer2" parent="CanvasLayer/MainUi/Our" instance=ExtResource( 2 )]
+visible = false
+margin_left = 0.0
+margin_top = 83.0
+margin_right = 156.0
+margin_bottom = 162.0
+
+[node name="MiscritInfoContainer3" parent="CanvasLayer/MainUi/Our" instance=ExtResource( 2 )]
+visible = false
+margin_left = 0.0
+margin_top = 166.0
+margin_right = 156.0
+margin_bottom = 245.0
+
+[node name="MiscritInfoContainer4" parent="CanvasLayer/MainUi/Our" instance=ExtResource( 2 )]
+visible = false
+margin_left = 0.0
+margin_top = 83.0
+margin_right = 156.0
+margin_bottom = 162.0
+
+[node name="OpenOurMiscritsFull" type="Control" parent="CanvasLayer/MainUi"]
+margin_left = 220.0
+margin_top = 6.0
+margin_right = 370.0
+margin_bottom = 86.0
+
+[node name="Foe" type="VBoxContainer" parent="CanvasLayer/MainUi"]
+margin_left = 630.0
+margin_top = -144.0
+margin_right = 786.0
+margin_bottom = 154.0
+
+[node name="FoeMiscritInfoContainer" parent="CanvasLayer/MainUi/Foe" instance=ExtResource( 2 )]
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 156.0
+margin_bottom = 79.0
+
+[node name="Run" type="Button" parent="CanvasLayer/MainUi"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -361.0
+margin_top = 304.0
+margin_right = -328.0
+margin_bottom = 363.0
+custom_styles/normal = SubResource( 1 )
+icon = ExtResource( 1 )
+icon_align = 1
+
+[node name="AbillityPanel" type="TextureRect" parent="CanvasLayer/MainUi"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -344.0
+margin_top = 367.0
+margin_right = 346.0
+margin_bottom = 473.0
+texture = ExtResource( 22 )
+
+[node name="Abilities" type="HBoxContainer" parent="CanvasLayer/MainUi/AbillityPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 15.0
+margin_top = 24.0
+margin_right = 1.0
+margin_bottom = 2.0
+custom_constants/separation = -17
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Miscrits" type="HBoxContainer" parent="CanvasLayer/MainUi/AbillityPanel"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -331.5
+margin_top = -37.0
+margin_right = 331.5
+margin_bottom = 37.0
+custom_constants/separation = 6
+
+[node name="BattleSwitchContainer" parent="CanvasLayer/MainUi/AbillityPanel/Miscrits" instance=ExtResource( 19 )]
+
+[node name="BattleSwitchContainer2" parent="CanvasLayer/MainUi/AbillityPanel/Miscrits" instance=ExtResource( 19 )]
+margin_left = 167.0
+margin_right = 328.0
+
+[node name="BattleSwitchContainer3" parent="CanvasLayer/MainUi/AbillityPanel/Miscrits" instance=ExtResource( 19 )]
+margin_left = 334.0
+margin_right = 495.0
+
+[node name="BattleSwitchContainer4" parent="CanvasLayer/MainUi/AbillityPanel/Miscrits" instance=ExtResource( 19 )]
+margin_left = 501.0
+margin_right = 662.0
+
+[node name="Tint" type="TextureRect" parent="CanvasLayer/MainUi/AbillityPanel"]
+margin_left = 394.0
+margin_top = -40.0
+margin_right = 673.0
+margin_bottom = 1.0
+texture = ExtResource( 6 )
+
+[node name="Tint" type="Label" parent="CanvasLayer/MainUi/AbillityPanel/Tint"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 11.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = 2.0
+custom_fonts/font = SubResource( 30 )
+autowrap = true
+clip_text = true
+
+[node name="TabsContainer" type="HBoxContainer" parent="CanvasLayer/MainUi/AbillityPanel"]
+margin_left = 19.0
+margin_top = -36.0
+margin_right = 225.0
+margin_bottom = 5.0
+
+[node name="Abilities" type="TextureButton" parent="CanvasLayer/MainUi/AbillityPanel/TabsContainer"]
+margin_right = 93.0
+margin_bottom = 41.0
+toggle_mode = true
+pressed = true
+texture_normal = ExtResource( 18 )
+texture_pressed = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="CanvasLayer/MainUi/AbillityPanel/TabsContainer/Abilities"]
+margin_left = 7.0
+margin_top = 8.0
+margin_right = 85.0
+margin_bottom = 31.0
+custom_fonts/font = SubResource( 20 )
+text = "Abilities"
+align = 1
+
+[node name="Miscrits" type="TextureButton" parent="CanvasLayer/MainUi/AbillityPanel/TabsContainer"]
+margin_left = 97.0
+margin_right = 190.0
+margin_bottom = 41.0
+toggle_mode = true
+texture_normal = ExtResource( 18 )
+texture_pressed = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="CanvasLayer/MainUi/AbillityPanel/TabsContainer/Miscrits"]
+margin_left = 7.0
+margin_top = 8.0
+margin_right = 85.0
+margin_bottom = 31.0
+custom_fonts/font = SubResource( 20 )
+text = "Miscrits"
+align = 1
+
+[node name="AbillitiesMore" type="TextureButton" parent="CanvasLayer/MainUi/AbillityPanel"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -55.0
+margin_top = -48.0
+margin_right = -13.0
+margin_bottom = 48.0
+texture_normal = ExtResource( 11 )
+texture_hover = ExtResource( 12 )
+
+[node name="AbillitiesLess" type="TextureButton" parent="CanvasLayer/MainUi/AbillityPanel"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 55.0
+margin_top = -48.0
+margin_right = 97.0
+margin_bottom = 48.0
+rect_scale = Vector2( -1, 1 )
+texture_normal = ExtResource( 11 )
+texture_hover = ExtResource( 12 )
+
+[node name="Result" type="Control" parent="CanvasLayer"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+
+[node name="Darkness" type="Panel" parent="CanvasLayer/Result"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -832.5
+margin_top = -529.5
+margin_right = 832.5
+margin_bottom = 529.5
+custom_styles/panel = SubResource( 31 )
+
+[node name="Panel" type="TextureRect" parent="CanvasLayer/Result"]
+modulate = Color( 1, 1, 1, 0.133333 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -484.5
+margin_top = -252.5
+margin_right = 84.5
+margin_bottom = 196.5
+texture = ExtResource( 9 )
+expand = true
+
+[node name="Continue" type="TextureButton" parent="CanvasLayer/Result/Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -89.0
+margin_top = -9.0
+margin_right = 89.0
+margin_bottom = 48.0
+rect_scale = Vector2( 0.7, 0.7 )
+rect_pivot_offset = Vector2( 89, 28 )
+texture_normal = ExtResource( 10 )
+
+[node name="YourTeam" type="Panel" parent="CanvasLayer/Result/Panel"]
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 11.5
+margin_top = -145.0
+margin_right = 257.5
+margin_bottom = 69.0
+rect_pivot_offset = Vector2( 104, 109 )
+custom_styles/panel = SubResource( 24 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="wILL2" type="Label" parent="CanvasLayer/Result/Panel/YourTeam"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -106.0
+margin_right = 107.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 25 )
+text = "CoolName"
+align = 1
+valign = 1
+
+[node name="Grid" type="GridContainer" parent="CanvasLayer/Result/Panel/YourTeam"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -110.0
+margin_top = -82.0
+margin_right = 120.0
+margin_bottom = 104.0
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 106, 93 )
+custom_constants/vseparation = 6
+custom_constants/hseparation = 30
+columns = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="EnemyTeam" type="Panel" parent="CanvasLayer/Result/Panel"]
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -259.5
+margin_top = -145.0
+margin_right = -13.5
+margin_bottom = 70.0
+rect_pivot_offset = Vector2( 104, 109 )
+custom_styles/panel = SubResource( 24 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="wILL2" type="Label" parent="CanvasLayer/Result/Panel/EnemyTeam"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -106.0
+margin_right = 107.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 25 )
+text = "Wild"
+align = 1
+valign = 1
+
+[node name="Grid" type="GridContainer" parent="CanvasLayer/Result/Panel/EnemyTeam"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -116.0
+margin_top = -82.5
+margin_right = 114.0
+margin_bottom = 103.5
+rect_scale = Vector2( 0.9, 0.9 )
+rect_pivot_offset = Vector2( 106, 93 )
+custom_constants/vseparation = 6
+custom_constants/hseparation = 12
+columns = 2
+
+[node name="Reward" type="Panel" parent="CanvasLayer/Result/Panel"]
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 22.0
+margin_top = 326.0
+margin_right = -22.0
+margin_bottom = -34.0
+rect_pivot_offset = Vector2( 222, 41 )
+custom_styles/panel = SubResource( 24 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Result/Panel/Reward"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 11.0
+margin_bottom = -9.0
+alignment = 1
+
+[node name="wILL" type="Label" parent="CanvasLayer/Result/Panel"]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -119.0
+margin_top = 15.0
+margin_right = 94.0
+margin_bottom = 29.0
+text = "WILL BE CHANGED LATER BRUUU"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Result"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -251.5
+margin_top = -147.5
+margin_right = 251.5
+margin_bottom = 147.5
+texture = ExtResource( 17 )
+expand = true
+
+[node name="AbillityDescription" parent="CanvasLayer" instance=ExtResource( 13 )]
+visible = false
+margin_right = 228.0
+margin_bottom = 113.0
+
+[node name="Capture" type="Control" parent="CanvasLayer"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+
+[node name="BookAnimate2" type="Sprite" parent="CanvasLayer/Capture"]
+visible = false
+position = Vector2( 737, 366 )
+scale = Vector2( 1.05714, 1.05714 )
+texture = ExtResource( 25 )
+
+[node name="BookAnimate3" type="Sprite" parent="CanvasLayer/Capture"]
+visible = false
+modulate = Color( 1, 1, 1, 0.987786 )
+position = Vector2( 737, 366 )
+scale = Vector2( 1.02443, 1.02443 )
+texture = ExtResource( 25 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="CanvasLayer/Capture"]
+modulate = Color( 1, 1, 1, 0.040195 )
+position = Vector2( 737, 357 )
+emitting = false
+amount = 12
+randomness = 1.0
+local_coords = false
+texture = ExtResource( 15 )
+flag_align_y = true
+direction = Vector2( 0, 0 )
+spread = 92.89
+gravity = Vector2( 0, 99 )
+initial_velocity = 187.42
+linear_accel = -100.0
+color_initial_ramp = SubResource( 34 )
+
+[node name="Captured" type="Control" parent="CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Darkness" type="Panel" parent="CanvasLayer/Captured"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -832.5
+margin_top = -529.5
+margin_right = 832.5
+margin_bottom = 529.5
+custom_styles/panel = SubResource( 31 )
+
+[node name="Captured" type="TextureRect" parent="CanvasLayer/Captured"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -1039.0
+margin_top = -91.0
+margin_right = -561.0
+margin_bottom = 91.0001
+texture = ExtResource( 20 )
+expand = true
+stretch_mode = 6
+
+[node name="Pedia" type="TextureRect" parent="CanvasLayer/Captured/Captured"]
+margin_left = 153.0
+margin_top = -164.0
+margin_right = 632.0
+margin_bottom = 314.0
+texture = ExtResource( 14 )
+
+[node name="Evolit" type="TextureRect" parent="CanvasLayer/Captured/Captured/Pedia"]
+margin_left = 112.0
+margin_top = 103.0
+margin_right = 368.0
+margin_bottom = 330.0
+texture = ExtResource( 21 )
+stretch_mode = 4
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Captured/Captured"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Name" type="Label" parent="CanvasLayer/Captured/Captured"]
+margin_left = 7.0
+margin_top = 66.0
+margin_right = 266.0
+margin_bottom = 128.0
+custom_fonts/font = SubResource( 35 )
+text = "Sprout"
+align = 1
+valign = 1
+
+[node name="Captured_Continue" type="TextureButton" parent="CanvasLayer/Captured/Captured"]
+modulate = Color( 1, 0.537255, 0, 1 )
+margin_left = 92.0
+margin_top = 135.0
+margin_right = 226.0
+margin_bottom = 172.0
+texture_normal = ExtResource( 10 )
+expand = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Captured"]
+anims/Close = SubResource( 36 )
+anims/Spawn = SubResource( 37 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Capture = SubResource( 32 )
+anims/RESET = SubResource( 33 )
+anims/exit = SubResource( 26 )
+anims/spawn_result = SubResource( 28 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+visible = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[connection signal="pressed" from="CanvasLayer/MainUi/Miscripedia/Capture" to="." method="_on_Capture_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/MainUi/OpenOurMiscritsFull" to="." method="_on_OpenOurMiscritsFull_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MainUi/OpenOurMiscritsFull" to="." method="_on_OpenOurMiscritsFull_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/MainUi/Run" to="." method="_on_Run_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainUi/AbillityPanel/TabsContainer/Abilities" to="." method="_on_TabSwitch_pressed" binds= [ "Abilities" ]]
+[connection signal="pressed" from="CanvasLayer/MainUi/AbillityPanel/TabsContainer/Miscrits" to="." method="_on_TabSwitch_pressed" binds= [ "Miscrits" ]]
+[connection signal="pressed" from="CanvasLayer/MainUi/AbillityPanel/AbillitiesMore" to="." method="_on_AbillitiesMore_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainUi/AbillityPanel/AbillitiesLess" to="." method="_on_AbillitiesLess_pressed"]
+[connection signal="pressed" from="CanvasLayer/Result/Panel/Continue" to="." method="_on_Close_pressed"]
+[connection signal="pressed" from="CanvasLayer/Captured/Captured/Captured_Continue" to="." method="_on_Captured_Continue_pressed"]

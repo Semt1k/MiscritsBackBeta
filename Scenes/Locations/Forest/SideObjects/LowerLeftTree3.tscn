@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Locations/Forest/SideObjects/lower_left_tree_3.png" type="Texture" id=1]
+
+[node name="LowerLeftTree3" type="Node2D"]
+
+[node name="LowerLeftTree3" type="Sprite" parent="."]
+position = Vector2( 9, -125 )
+texture = ExtResource( 1 )

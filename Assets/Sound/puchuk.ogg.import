@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/puchuk.ogg-94469c3bdd63ccde2e59705638e962c4.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sound/puchuk.ogg"
+dest_files=[ "res://.import/puchuk.ogg-94469c3bdd63ccde2e59705638e962c4.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
